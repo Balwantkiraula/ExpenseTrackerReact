@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import '../App.css';
+import {  useNavigate } from 'react-router-dom';
 function Login() {
+   
+    const history = useNavigate();
+ 
     const [login, setLogin] = useState([]);
     const [email, setEmail] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -51,7 +55,11 @@ function Login() {
             setConfirmPassword('');
         }
     }
-
+    const handleLogin = () => {
+        // Your login logic here
+        history("/login")
+      };
+    
     return (
         <form onSubmit={signUpHandle} >
             <div className='login-container'>
@@ -73,11 +81,13 @@ function Login() {
                 <div>
                     <button type='submit'>Sign Up</button>
                 </div>
-            
+              <button onClick={handleLogin}> Already have account ? Login</button>
+           
             </div>
         </form>
     )
 }
 
 export default Login;
+
 
