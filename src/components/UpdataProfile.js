@@ -1,9 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 function UpdataProfile() {
     const [updateProfile, setUpdateProfile]=useState([]);
     const [name, setName]=useState('');
     const [photo, setPhoto]=useState('');
+
+    
+  useEffect(() => {
+    const fetchProfile = async () => {
+      // Replace `idToken` with the actual idToken
+      const response = await fetch(`https://expensetracker-23569-default-rtdb.firebaseio.com/cart.json?idToken=idToken`);
+      const data = await response.json();
+      if (data) {
+        setName(data.name);
+        setPhoto(data.photo);
+      }
+    };
+    fetchProfile();
+  }, []);
+
 
     const updateHandle= async(e)=>{
     e.preventDefault();
@@ -39,3 +54,4 @@ console.log(data);
 }
 
 export default UpdataProfile
+
