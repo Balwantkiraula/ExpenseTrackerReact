@@ -39,8 +39,10 @@ const Login = () =>{
                 <label htmlFor="p">Password</label>
                 <input type="password" id="p" placeholder="Enter password" required ref={passwRef} />
             </div>
-            
+            <Link to='/forgotP'>Forgot Password</Link>
+            <div>
             <button type="submit">Login</button>
+            </div>
             <div>
               <Link to='/'>Don't have an account : Sign Up</Link>
             </div>

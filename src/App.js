@@ -7,6 +7,7 @@ import React from 'react';
 import { BrowserRouter,Routes,Route, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Profile from './components/pages/Profile';
+import ForgotPassword from './components/pages/ForgotPassword';
 
 function App() {
   const [token,setToken] = useState('');
@@ -28,7 +29,9 @@ function App() {
         <Route path='/' element={<SignUp/>}/>
         <Route path='/login' element={ <Login />}/>
         <Route path='/profile' element={   <Profile/>}/>
+        <Route path='/forgotP' element={<ForgotPassword /> }/>
       </Routes>
+      
     </div>     
      
   );
