@@ -1,18 +1,36 @@
+
 import './App.css';
-import Login from './components/Login';
-import LoginPage from './components/LoginPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import UpdataProfile from './components/UpdataProfile';
+import SignUp from './components/pages/SignUp';
+import Home from './components/pages/Home';
+import Login from './components/pages/Login';
+import React from 'react';
+import { BrowserRouter,Routes,Route, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Profile from './components/pages/Profile';
 
 function App() {
+  const [token,setToken] = useState('');
+  const [login,setLogin] = useState(false);
+
+  useEffect(()=>{
+    const userToken = localStorage.getItem('userCurr');
+    console.log(userToken);
+    if(!userToken===''){
+      setToken(userToken);
+      setLogin(true);
+    }
+    
+  },[login])
   return (
-    <BrowserRouter>
+    <div className='App'> 
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/update' element={ <UpdataProfile />}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<SignUp/>}/>
+        <Route path='/login' element={ <Login />}/>
+        <Route path='/profile' element={   <Profile/>}/>
       </Routes>
-    </BrowserRouter>
+    </div>     
+     
   );
 }
 
