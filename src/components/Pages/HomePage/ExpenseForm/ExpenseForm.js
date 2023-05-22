@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './ExpenseForm.module.css';
 import { FaAngleDown,FaAngleRight} from 'react-icons/fa';
 
-const categories = ['patrol', 'food', 'bills payments', 'other expense'];
+const categories = ['petrol', 'food', 'bill payments', 'other expense'];
 
 const ExpenseForm = (props) => {
   const [money, setMoney] = useState('');
